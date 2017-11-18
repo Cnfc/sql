@@ -39,3 +39,59 @@ FROM books;
 SELECT
     CONCAT (author_fname, ' ', author_lname) AS 'full name in caps'
 FROM books;
+
+
+SELECT
+    CONCAT (title, ' was released in ', released_year) AS 'blurb'
+FROM books;
+
+SELECT 
+    title,
+    CHAR_LENGTH(title) AS 'character count'
+FROM books;
+ 
+ 
+SELECT
+    CONCAT(SUBSTRING(title, 1, 10), '...') AS 'short title',
+    CONCAT(author_lname, ',',author_fname) AS author,
+    CONCAT(stock_quantity, ' in stock') AS quantity
+FROM books;
+
+SELECT
+   CONCAT(SUBSTRING(title, 1, 10), '...') AS 'short title',
+   CONCAT(author_lname, ',', author_fname) AS author,
+   CONCAT(stock_quantity, ' in stock') AS quantity
+FROM books;
+
+
+
+SELECT 
+    title, 
+    stock_quantity AS pages
+FROM books ORDER BY 2 DESC LIMIT 1;
+
+
+SELECT
+    CONCAT(title, ' - ', released_year ) AS summary
+FROM books ORDER BY released_year DESC LIMIT 4;
+
+SELECT 
+    title,
+    author_lname
+FROM books WHERE author_lname LIKE '% %';
+
+SELECT
+    title,
+    released_year,
+    stock_quantity
+FROM books ORDER BY 3 LIMIT 3;
+
+SELECT 
+    title,
+    author_lname
+FROM books ORDER BY author_lname, title;
+
+SELECT 
+    CONCAT('MY FAVORITE AUTHOR IS ', author_fname, ' ',  author_lname,'!') AS yell
+FROM books ORDER BY author_lname;
+    
