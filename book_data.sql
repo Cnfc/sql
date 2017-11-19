@@ -130,3 +130,19 @@ FROM books;
 SELECT
     CONCAT(author_fname,' ', author_lname) AS name
 FROM books WHERE pages = (SELECT Max(pages) FROM books);
+
+INSERT INTO dogs(name, breed)
+VALUES ('bob', 'beagle');
+
+
+CREATE TABLE dogs (name CHAR(5), breed VARCHAR(10));   
+
+CREATE TABLE people(
+    name VARCHAR(100),
+    birthdate DATE,
+    birthtime TIME,
+    birthdt DATETIME
+);
+
+INSERT INTO people (name, birthdate, birthtime, birthdt) VALUES
+('Padma', '1983-11-11', '10:07:35', '1983-11-11 10:07:35');
