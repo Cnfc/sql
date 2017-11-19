@@ -95,3 +95,38 @@ SELECT
     CONCAT('MY FAVORITE AUTHOR IS ', author_fname, ' ',  author_lname,'!') AS yell
 FROM books ORDER BY author_lname;
     
+    
+SELECT  
+    COUNT(DISTINCT author_fname) 
+FROM books;
+
+SELECT  
+    COUNT(DISTINCT author_fname, author_lname) 
+FROM books;
+
+SELECT COUNT(*) FROM books WHERE title LIKE '%the%';
+
+SELECT 
+    title, 
+    pages 
+FROM books WHERE pages=(SELECT Min(pages) FROM books);
+
+SELECT title, pages FROM books
+    ORDER BY pages ASC LIMIT 1;
+    
+SELECT AVG(stock_quantity)
+FROM books
+GROUP BY released_year;
+
+SELECT
+    released_year,
+    COUNT(released_year)
+FROM books GROUP BY released_year;
+    
+SELECT
+    COUNT(title) AS books
+FROM books;
+
+SELECT
+    CONCAT(author_fname,' ', author_lname) AS name
+FROM books WHERE pages = (SELECT Max(pages) FROM books);
