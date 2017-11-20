@@ -157,3 +157,16 @@ INSERT INTO people (name, birthdate, birthtime, birthdt) VALUES ('Microwave', CU
  SELECT DATE_FORMAT(birthdt, 'WAS born in %W %D') FROM people;
  SELECT birthdt, birthdt + INTERVAL 1 MONTH FROM people;
  
+ CREATE TABLE comments (
+    content VARCHAR(100),
+    created_at TIMESTAMP DEFAULT NOW()
+ );
+ 
+ CREATE TABLE comments2 (
+    content VARCHAR(100),
+    changed_at INT TIMESTAMP DEFAULT NOW() ON UPDATE CURRENT_TIMESTAMP
+ );
+ 
+ SELECT DAYNAME(NOW());
+ 
+ SELECT DATE_FORMAT(NOW(), '%M %D at %h:%i');
