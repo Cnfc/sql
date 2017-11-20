@@ -170,3 +170,73 @@ INSERT INTO people (name, birthdate, birthtime, birthdt) VALUES ('Microwave', CU
  SELECT DAYNAME(NOW());
  
  SELECT DATE_FORMAT(NOW(), '%M %D at %h:%i');
+ SELECT * FROM books ORDER BY pages LIMIT 1;
+ select * from books WHERE ORDER BY pages ;
+ 
+ SELECT -10 > -20 && 0<= 0;
+ 
+ SELECT title, released_year FROM books WHERE released_year BETWEEN 2004 AND 2014;
+ 
+ SELECT title, author_lname FROM books
+ WHERE author_lname IN('Carver', 'Smith');
+ 
+  SELECT title, released_year FROM books
+ WHERE released_year IN(2017, 1985);
+ 
+   SELECT title, released_year FROM books
+ WHERE released_year >= 2000 AND released_year NOT IN(2000, 2002);
+ 
+    SELECT title, released_year FROM books
+ WHERE released_year >= 2000 AND released_year % 2 != 0;
+ 
+ SELECT title, released_year,
+    CASE 
+        WHEN released_year >= 2000 THEN 'Modern Lit'
+        ELSE '20th Century Lit'
+    END AS GENRE
+FROM books;
+
+ SELECT title, stock_quantity,
+    CASE 
+        WHEN stock_quantity BETWEEN 0 AND 50 THEN '*'
+        WHEN stock_quantity BETWEEN 50 AND 100 THEN '**'
+        ELSE '***'
+    END AS STOCK
+FROM books ORDER BY STOCK DESC;
+
+
+SELECT 10 != 10;    
+SELECT 15 > 14 && 99 -5 <=94;
+SELECT 9 BETWEEN 8 AND 10;
+SELECT 1 IN (5,3) || 9 BETWEEN 8 AND 10;
+SELECT 1 IN (5,3);
+
+SELECT title, author_lname
+FROM books WHERE author_lname='Eggers' OR author_lname='Chabon';
+
+SELECT title, released_year, author_lname FROM books
+WHERE author_lname IN ("Lahiri") && released_year>2000;
+
+SELECT title, released_year, author_lname, pages FROM books
+WHERE pages BETWEEN 100 AND 200;
+
+SELECT title, released_year, author_lname, pages FROM books
+WHERE author_lname LIKE 'C%' OR author_lname LIKE 'S%';
+
+SELECT title, released_year, author_lname, pages ,
+    CASE 
+        WHEN title LIKE '%stories%' THEN "Short stories" 
+        WHEN title = 'Just Kids' OR title = 'A Heartbreaking Work of Staggering Genius' THEN 'Memoir'
+        ELSE "Novel"
+    END AS TYPE
+FROM books;
+        
+SELECT title, author_lname,
+    CASE 
+        WHEN COUNT(*) = 1 then '1 book'
+        ELSE CONCAT(COUNT(*), ' books')
+    END AS COUNT
+FROM books
+GROUP BY author_lname, author_fname;
+
+SELECT AVG(stock_quantity) FROM books;
