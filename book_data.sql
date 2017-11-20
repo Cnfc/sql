@@ -239,4 +239,4 @@ SELECT title, author_lname,
 FROM books
 GROUP BY author_lname, author_fname;
 
-SELECT AVG(stock_quantity) FROM books;
+SELECT AVG(stock_quantity) FROM books;d
