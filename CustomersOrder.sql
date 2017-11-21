@@ -29,4 +29,7 @@ VALUES ('2016/02/10', 99.99, 1),
        ('1999/04/11', 450.25, 5);
        
        
-SELECT * FROM customers, orders WHERE customers.id = customer_id;
+SELECT * FROM customers, orders 
+WHERE customers.id = orders.customer_id;
+
+
