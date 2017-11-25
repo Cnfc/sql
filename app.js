@@ -3,15 +3,22 @@ var faker      = require("faker");
 var express    = require("express");
 var app        = express();
 
-// var connection = mysql.createConnection({
-//   host     : '127.0.0.1',
-//   user     : 'root',
-//   password : 'cnfcSQLSERVER92',
-//   database : 'db_app'
-// });
+var connection = mysql.createConnection({
+  host     : '127.0.0.1',
+  user     : 'root',
+  password : 'cnfcSQLSERVER92',
+  database : 'email_db_app'
+});
 
 app.get("/", function(req, res) {
-  res.send("Hello FROM our APP!");
+  // FIND COUNT USERS IN DATABASE
+  var q = "SELECT COUNT(*) AS count FROM users";
+  connection.query(q, function(err, results) {
+    if(err) throw err;
+    var count = results[0].count;
+    res.send("We have " + count + " users in our db");
+  });
+  // RESPOND WITH THAT ACC
 });
 
 app.get("/joke", function(req, res) {
