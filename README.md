@@ -1,1 +1,2 @@
-# sql USE CLOUD9 TO COnnect and CRUD db;
+# mysql + node practice .
+# add email to db and count them 
